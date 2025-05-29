@@ -1,0 +1,40 @@
+﻿@page
+@model MyApp.Namespace.PortfolioModel
+<h2> My Stock Portfolio </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stock in Model.MyPortfolio.MyStocks)
+        {
+            <tr>
+                <td>@stock.Symbol</td>
+                <td>@stock.Quantity</td>
+                <td>@stock.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Add a Stock</h2>
+<form method="post">
+    <div class="form-group">
+        <label>Symbol</label>
+        <input type="text" name="Symbol" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" name="Quantity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" step="0.01" name="Price" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Add</button>
+</form>
+
